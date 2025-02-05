@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+  
+  .image-container {
+  width: 80%; /* Adjust container width as necessary */
+  max-width: 1000px; /* Set a maximum width for the container */
+  overflow: hidden; /* Ensure content outside the container is hidden */
+  margin: auto;
+  }
+  
+  img {
+  width: 250px;
+  height: 250px;
+  }
+  
+  .slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  }
+  
+  .slider .row {
+  display: flex;
+  width: calc(250px * 18); /* Adjust to match the number of images */
+  animation: slide 13s linear infinite;
+  }
+  
+  @keyframes slide {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-250px * 6)); /* Adjust this value based on the number of images shown at a time */
+  }
+  }
+  
+  img:hover {
+  transform: translateZ(20px);
+  transition: 0.5s;
+  }
+  
+  .slider .column {
+  perspective: 100px;
+  padding: 22px;
+  }
+  

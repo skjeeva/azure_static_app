@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive News App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: fit-content;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:#75ace7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .newsbot-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 12px;
+      background-color: #007bff; /* Added background color */
+      color: white; /* White text for better visibility */
+      border-bottom: 2px solid #ccc; /* Added border for separation */
+    }
+
+    button{
+      display: block;
+      background-color: #007bff;
+      border: #007bff;
+    }
+
+    h4,h2,h1{
+      color: white;
+    }
+
+    a{
+      color: white;
+    }
+
+    .icon-circle {
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+      height: 50px;
+      width: 50px;
+      justify-content: center;
+    }
+ 
+    .cht-image{
+      width: 40px ;
+      height: 40px;
+      margin-top: 6px;
+    }
+
+    .newsbot-details {
+      margin-left: 12px;
+      flex-grow: 1;
+    }
+
+    .newsbot-details p {
+      margin: 0;
+    }
+
+    /* Styling for the image slider */
+    .image-container {
+        width: 95%; /* Adjust container width as necessary */
+        max-width: 1200px; /* Set a maximum width for the container */
+        overflow: hidden; /* Ensure content outside the container is hidden */
+        margin: auto;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    .slider-img {
+      width: 250px;
+      height: 250px;
+    }
+
+    .slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    .slider .row {
+      display: flex;
+      width: calc(250px * 18); /* Adjust to match the number of images */
+      animation: slide 30s linear infinite;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-250px * 6)); /* Adjust based on the number of images shown */
+      }
+    }
+
+    img:hover {
+      transform: translateZ(20px);
+      transition: 0.5s;
+    }
+
+    .slider .column {
+      perspective: 100px;
+      padding: 22px;
+    }
+
+    .h4-img,h4{
+      display: inline;
+    }
+    /* Additional styles */
+    .input-area {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      padding: 0 12px;
+    }
+
+    .input-box {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-box input {
+      flex-grow: 1;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      margin-left: 12px;
+    }
+
+    .featured-stories {
+      margin-top: 24px;
+    }
+
+    .featured-header {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .story-card {
+      border: 1px solid #0000001a;
+      border-radius: 6px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .story-card-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .story-card p {
+      margin: 0;
+    }
+
+    .story-time {
+      font-size: 12px;
+      color: #00000080;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .menu-item {
+        margin-left: 0;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<aside class="aside">
+  
+</aside>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="newsbot-header">
+      <button><a href="main.html"><div class="icon-circle"><img class="cht-image" src="images/chatbot.png" alt=""></a></div></button>
+      <div class="newsbot-details">
+        <h2>News Bot</h2>
+        <p style="font-size: 12px; display:inline;">Your Personal News Assistant</p>
+        <p style="font-size: 12px; display:inline;">Latest News</p>
+        <p style="font-size: 12px; display:inline;">Featured Stories</p>
+        <p style="font-size: 12px; display:inline;">User Feedback</p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Image Slider -->
+    <h2>For Your Eyes</h2>
+    <div class="image-container">
+      <div class="slider">
+        <div class="row">
+          <div class="column"><img class="slider-img" src="images/img1.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img2.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img3.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img4.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img5.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img6.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img1.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img2.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img3.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img4.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img5.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img6.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img1.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img2.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img3.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img4.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img5.jpg" alt=""></div>
+          <div class="column"><img class="slider-img" src="images/img6.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
+    <!-- Input Box -->
+    <div class="">
+     <h2>Latest News</h2>
+     <br>
+     <div class="lat-det">
+     <img class="h4-img" style="width: 30px;height: 30px; margin:3px 3px 0 0;" src="images/img1.jpg" alt="">
+     <h4>Breaking News</h4>
+     <p style="font-size: 12px">Top stories of the day</p>
+    </div>
+    </div>
+    <hr>
+    <!-- Featured Stories -->
+    <div class="featured-stories">
+      <div class="featured-header"><h1>Featured Stories</h1></div>
+      <div class="story-grid" id="storiesContainer">
+        <div class="story-card">
+          <img src="images/img1.jpg" alt="Newspaper photo" style="width: 250px; height: 250px;">
+          <div class="story-card-details">
+            <p>Politics Today</p>
+            <p class="story-time">5m ago</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <img src="images/img2.jpg" alt="equity research photo" style="width: 250px; height: 250px;">
+          <div class="story-card-details">
+            <p>Stock market volatality</p>
+            <p class="story-time">1h ago</p>
+          </div>
+        </div>
+        <div class="story-card">
+            <img src="images/img3.jpg" alt="equity research photo" style="width: 250px; height: 250px;">
+            <div class="story-card-details">
+              <p>Celebrity Insider</p>
+              <p class="story-time">1h ago</p>
+            </div>
+          </div>
+      <div class="story-card">
+        <img src="images/img4.jpg" alt="equity research photo" style="width: 250px; height: 250px;">
+        <div class="story-card-details">
+          <p>Celebrity Insider</p>
+          <p class="story-time">1h ago</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+  </div>
+
+  <script>
+    const newsInput = document.getElementById('newsInput');
+    newsInput.addEventListener('input', (e) => {
+      console.log('User is searching for:', e.target.value);
+    });
+  </script>
+</body>
+</html>
